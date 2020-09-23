@@ -4,8 +4,6 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.net.ServerSocket;
 import java.net.Socket;
-import java.util.ArrayList;
-import java.util.List;
 
 import sockets.operation.dto.MensajeSecretoDTO;
 import sockets.operation.dto.RespuestaCoronelDTO;
@@ -31,31 +29,13 @@ public class SoldadoTerminalCliente {
 			
 			System.out.println("PREPARANDO ENVIO DE MENSAJE..");
 			
-			//LISTA DE MENSAJES SECRETOS!
-			List<MensajeSecretoDTO> lst = new ArrayList<MensajeSecretoDTO>();
-			
 			MensajeSecretoDTO mensaje = new MensajeSecretoDTO();
 			mensaje.setIdSoldado("Delta1");
 			mensaje.setMensaje("LTN54.454.545");
 			mensaje.setCoordenadas("Objetivo en la mira");
-			
-			MensajeSecretoDTO mensaje2 = new MensajeSecretoDTO();
-			mensaje2.setIdSoldado("Delta1");
-			mensaje2.setMensaje("LTN54.454.545");
-			mensaje2.setCoordenadas("Necesito A poollo");
-			
-			MensajeSecretoDTO mensaje3 = new MensajeSecretoDTO();
-			mensaje3.setIdSoldado("Delta1");
-			mensaje3.setMensaje("LTN54.454.545");
-			mensaje3.setCoordenadas("todos muertos");
-			
-			lst.add(mensaje);
-			lst.add(mensaje2);
-			lst.add(mensaje3);
-			
 			//Enviar mensajes
-			flujoSalida.writeObject(lst);
-			System.out.println("LISTA DE MENSAJES ENVIADO!");
+			flujoSalida.writeObject(mensaje);
+			System.out.println("MENSAJE ENVIADO!");
 			
 			//creamos el flujo de entrada
 			ObjectInputStream flujoEntrada = new ObjectInputStream(socket.getInputStream());

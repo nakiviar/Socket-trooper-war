@@ -4,7 +4,6 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.net.ServerSocket;
 import java.net.Socket;
-import java.util.List;
 
 import sockets.operation.dto.MensajeSecretoDTO;
 import sockets.operation.dto.RespuestaCoronelDTO;
@@ -38,16 +37,12 @@ public class ServidorTorreControl {
 		//Establecer el flujo de entrada
 		ObjectInputStream flujoEntrada = new ObjectInputStream(socket.getInputStream()); 
 		//obtener mensaje 
-		List<MensajeSecretoDTO> lst = (List<MensajeSecretoDTO>) flujoEntrada.readObject();
+		MensajeSecretoDTO mensaje = (MensajeSecretoDTO) flujoEntrada.readObject();
 		
-
+		System.out.println("idSoldado: "+mensaje.getIdSoldado());
+		System.out.println("coordenadas "+mensaje.getCoordenadas());
+		System.out.println("mensaje: "+ mensaje.getMensaje());
 		
-		for(MensajeSecretoDTO mensaje : lst) {
-			System.out.println("idSoldado: "+mensaje.getIdSoldado());
-			System.out.println("coordenadas "+mensaje.getCoordenadas());
-			System.out.println("mensaje: "+ mensaje.getMensaje());
-			System.out.println("----------------------------------");	
-		}
 		
 		//establecemos un flujo de salida
 		ObjectOutputStream flujoSalida = new ObjectOutputStream(socket.getOutputStream());

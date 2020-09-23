@@ -54,8 +54,8 @@ public class SoldadoTerminalCliente {
 			lst.add(mensaje3);
 			
 			//Enviar mensajes
-			flujoSalida.writeObject(lst);
-			System.out.println("LISTA DE MENSAJES ENVIADO!");
+			flujoSalida.writeObject(mensaje);
+			System.out.println("MENSAJE ENVIADO!");
 			
 			//creamos el flujo de entrada
 			ObjectInputStream flujoEntrada = new ObjectInputStream(socket.getInputStream());

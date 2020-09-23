@@ -2,12 +2,8 @@ package sockets.operation.dto;
 
 import java.io.Serializable;
 
-public class RespuestaCoronelDTO implements Serializable {
+public class RespuestaCoronelDTO implements Serializable  {
 
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
 	private String idCoronel;
 	private String respuesta;
 	
