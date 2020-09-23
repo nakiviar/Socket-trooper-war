@@ -1,0 +1,27 @@
+package sockets.operation.attack;
+
+import java.net.ServerSocket;
+import java.net.Socket;
+
+public class SoldadoTerminalCliente {
+
+	public static final int PUERTO_ULTRASECRETO = 5544;
+	// Canal de comunicación
+	private ServerSocket servidor = null;
+
+	public static void main(String[] args) {
+
+		try {
+			
+			System.out.println("SOLDADO DELTA1 - INTENTANDO COMUNICARSE ...");
+			// establecer comunicacion  con la torre de control
+			Socket socket = new Socket("localhost",PUERTO_ULTRASECRETO);
+			//localhost: 127.0.0.1
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+	}
+
+}

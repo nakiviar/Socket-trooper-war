@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Copy element &apos;RespuestaCoronelDTO.java&apos; to &apos;soldadoSockets/src/sockets.operation.dto&apos;&#x0D;&#x0A;- Original project: &apos;sockets&apos;&#x0D;&#x0A;- Destination element: &apos;soldadoSockets/src/sockets.operation.dto&apos;&#x0D;&#x0A;- Original element: &apos;sockets.operation.dto.RespuestaCoronelDTO.java&apos;" description="Copy compilation unit" destination="=soldadoSockets/src&lt;sockets.operation.dto" element1="/src&lt;sockets.operation.dto{RespuestaCoronelDTO.java" files="0" flags="589830" folders="0" id="org.eclipse.jdt.ui.copy" policy="org.eclipse.jdt.ui.copyResources" stamp="1600825690155" units="1" version="1.0"/>
+</session>

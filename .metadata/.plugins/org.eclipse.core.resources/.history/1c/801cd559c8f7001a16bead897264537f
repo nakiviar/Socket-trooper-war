@@ -1,0 +1,17 @@
+package sockets.operation.attack;
+
+import java.net.ServerSocket;
+
+public class SoldadoTerminalCliente {
+
+	public static final int PUERTO_ULTRASECRETO = 5544;
+	// Canal de comunicación
+	private ServerSocket servidor = null;
+
+	public static void main(String[] args) {
+
+	
+		
+	}
+
+}

@@ -1,0 +1,5 @@
+package sockets.operation.dto;
+
+public class MensajeSecretoDTO {
+
+}

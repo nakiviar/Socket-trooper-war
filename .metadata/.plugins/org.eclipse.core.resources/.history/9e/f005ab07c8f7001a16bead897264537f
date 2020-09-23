@@ -1,0 +1,30 @@
+package sockets.operation.attack;
+
+import java.io.IOException;
+import java.net.ServerSocket;
+import java.net.Socket;
+
+public class SoldadoTerminalCliente {
+
+	public static final int PUERTO_ULTRASECRETO = 5544;
+	// Canal de comunicación
+	private ServerSocket servidor = null;
+
+	public static void main(String[] args) {
+
+		new Servidox	
+		
+	}
+
+	public void levantarServidor() throws IOException {
+
+		System.out.println("Entro al método levantarServidor()");
+		// abrir canal de comunicacion en el puerto 5544
+		servidor = new ServerSocket(PUERTO_ULTRASECRETO);
+		System.out.println("Torre de control - ESCUCHANDO MENSAJES");
+		//activamos el escuchador de mensajes
+		Socket socket = servidor.accept();
+		
+		System.out.println("Torre de control - DETECTO UN MENSAJE");
+	}
+}

@@ -1,0 +1,60 @@
+package sockets.operation.attack;
+
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.net.ServerSocket;
+import java.net.Socket;
+
+import sockets.operation.dto.MensajeSecretoDTO;
+import sockets.operation.dto.RespuestaCoronelDTO;
+
+public class ServidorTorreControl {
+
+
+	public static final int PUERTO_ULTRASECRETO = 5544;
+	// Canal de comunicación
+	private ServerSocket servidor = null;
+
+	public static void main(String[] args) {
+
+		try{
+		new	ServidorTorreControl().levantarServidor();
+		}catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+
+	public void levantarServidor() throws Exception {
+
+		System.out.println("Entro al método levantarServidor()");
+		// abrir canal de comunicacion en el puerto 5544
+		servidor = new ServerSocket(PUERTO_ULTRASECRETO);
+		System.out.println("Torre de control - ESCUCHANDO MENSAJES");
+		//activamos el escuchador de mensajes
+		Socket socket = servidor.accept();
+		
+		System.out.println("Torre de control - DETECTO UN MENSAJE");
+		//Establecer el flujo de entrada
+		ObjectInputStream flujoEntrada = new ObjectInputStream(socket.getInputStream()); 
+		//obtener mensaje 
+		MensajeSecretoDTO mensaje = (MensajeSecretoDTO) flujoEntrada.readObject();
+		
+		System.out.println("idSoldado: "+mensaje.getIdSoldado());
+		System.out.println("coordenadas "+mensaje.getCoordenadas());
+		System.out.println("mensaje: "+ mensaje.getMensaje());
+		
+		
+		//establecemos un flujo de salida
+		ObjectOutputStream flujoSalida = new ObjectOutputStream(socket.getOutputStream());
+		
+		//preparamos el objeto de respuesta
+		RespuestaCoronelDTO respuesta = new RespuestaCoronelDTO();
+		respuesta.setIdCoronel("Alfa1");
+		respuesta.setRespuesta("Atacar al enemigo! :)");
+		
+		flujoSalida.writeObject(respuesta);
+		
+		socket.close();
+	}
+	
+}
